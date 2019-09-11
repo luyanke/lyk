@@ -1,0 +1,2 @@
+C:\Users\User\Documents\GitHub\LinearAlgebraWar\LinearAlgebraWar\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+C:\Users\User\Documents\GitHub\LinearAlgebraWar\LinearAlgebraWar\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
