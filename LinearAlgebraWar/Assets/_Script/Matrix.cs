@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Sprites;
 
 
 public enum Step
@@ -13,6 +14,7 @@ public enum Step
     multipCol //列倍乘
 }
 
+//history node
 public class Node
 {
     Step step;
@@ -26,11 +28,23 @@ public class Node
     }
 }
 
+public struct MatrixElement
+{
+    private int num { get; set; }
+    Sprite numImg;
+    Sprite Grid;
+}
+
 public class Matrix : MonoBehaviour
 {
     public static Matrix instance;
 
-    private int[,] matrix;
+    public MatrixElement[,] matrix;
+
+    //public int[,] matrix;
+    //public Sprite[,] matrixGrid;
+
+    //private Sprite[,] matrixImg;
     private Node node;
     private List<Node> history;
 
@@ -38,7 +52,8 @@ public class Matrix : MonoBehaviour
     void Start()
     {
         instance = this;
-        matrix = new int[3, 3];
+        matrix = new MatrixElement[3, 3];
+
     }
 
     // Update is called once per frame
@@ -47,9 +62,17 @@ public class Matrix : MonoBehaviour
         
     }
 
-    public void GenerateMatrix()
+    public void GenerateMatrix(MatrixElement matrix)
     {
         //生成3x3矩阵
+        for(int i = 0; i < matrix.GetLength(1);  i++)
+        {
+            for(int j = 0; j < matrix.GetLength(0); j++)
+            {
+                //...
+            }
+        }
+
     }
 
     public void SwapRow(int row1,int row2)
@@ -58,7 +81,7 @@ public class Matrix : MonoBehaviour
         int temp;
         for(int i = 0; i < 3; i++)
         {
-            temp = matrix[row1, i];
+            temp = matrix[row1, i].num;
             matrix[row1, i] = matrix[row2, i];
             matrix[row2, i] = temp;
         }
