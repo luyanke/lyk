@@ -28,11 +28,12 @@ public class Node
     }
 }
 
+//矩阵的单个元素
 public struct MatrixElement
 {
-    private int num { get; set; }
-    Sprite numImg;
-    Sprite Grid;
+    public int num { get; set; }
+    public Sprite numImg { get; set; }
+    public Sprite Grid { get; set; }
 }
 
 public class Matrix : MonoBehaviour
@@ -65,9 +66,9 @@ public class Matrix : MonoBehaviour
     public void GenerateMatrix(MatrixElement matrix)
     {
         //生成3x3矩阵
-        for(int i = 0; i < matrix.GetLength(1);  i++)
+        for(int i = 0; i < 3;  i++)
         {
-            for(int j = 0; j < matrix.GetLength(0); j++)
+            for(int j = 0; j < 3; j++)
             {
                 //...
             }
@@ -75,13 +76,13 @@ public class Matrix : MonoBehaviour
 
     }
 
-    public void SwapRow(int row1,int row2)
+    public void SwapRow(int row1, int row2)
     {
         // for --- alter
-        int temp;
-        for(int i = 0; i < 3; i++)
+        MatrixElement temp = new MatrixElement();
+        for (int i = 0; i < 3; i++)
         {
-            temp = matrix[row1, i].num;
+            temp = matrix[row1, i];
             matrix[row1, i] = matrix[row2, i];
             matrix[row2, i] = temp;
         }
@@ -90,8 +91,8 @@ public class Matrix : MonoBehaviour
 
     public void SwapCol(int col1,int col2)
     {
-        int temp;
-        for(int i = 0; i < 3; i++)
+        MatrixElement temp = new MatrixElement();
+        for (int i = 0; i < 3; i++)
         {
             temp = matrix[i, col1];
             matrix[i, col1] = matrix[i, col2];
