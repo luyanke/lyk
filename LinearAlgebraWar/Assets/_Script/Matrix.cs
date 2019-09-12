@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Sprites;
+using UnityEngine.UI;
+using System;
 
 
 public enum Step
@@ -32,8 +34,8 @@ public class Node
 public struct MatrixElement
 {
     public int num { get; set; }
-    public Sprite numImg { get; set; }
-    public Sprite Grid { get; set; }
+    //public Sprite numImg { get; set; }
+    public RawImage Grid { get; set; }
 }
 
 public class Matrix : MonoBehaviour
@@ -41,6 +43,7 @@ public class Matrix : MonoBehaviour
     public static Matrix instance;
 
     public MatrixElement[,] matrix;
+    private int[,] TestMatrix;
 
     //public int[,] matrix;
     //public Sprite[,] matrixGrid;
@@ -50,11 +53,15 @@ public class Matrix : MonoBehaviour
     private List<Node> history;
 
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         instance = this;
         matrix = new MatrixElement[3, 3];
-
+        TestMatrix = new int[,]{ { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+    }
+    void Start()
+    {
+        GenerateMatrix(TestMatrix);
     }
 
     // Update is called once per frame
@@ -63,14 +70,22 @@ public class Matrix : MonoBehaviour
         
     }
 
-    public void GenerateMatrix(MatrixElement matrix)
+    public void GenerateMatrix(int[,] originMatrix)
     {
+        int gridCount = 0;
         //生成3x3矩阵
         for(int i = 0; i < 3;  i++)
         {
             for(int j = 0; j < 3; j++)
             {
                 //...
+                matrix[i, j].Grid = Resource.instance.grid[gridCount];
+                gridCount++;
+                foreach (char num in originMatrix[i, j].ToString())
+                {
+                    Image insObj = Instantiate(Resource.instance.nums[int.Parse(num.ToString())], matrix[i, j].Grid.transform.position, matrix[i, j].Grid.transform.rotation) as Image;
+                    insObj.transform.parent = matrix[i, j].Grid.transform;
+                }
             }
         }
 
