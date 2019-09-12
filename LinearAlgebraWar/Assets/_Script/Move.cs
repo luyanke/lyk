@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Sprites;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Move : MonoBehaviour
 {
 
-    private int hitCount;
+    //private int hitCount;
     // Start is called before the first frame update
     void Start()
     {
-        hitCount = 0;
+        //hitCount = 0;
     }
 
     // Update is called once per frame
@@ -21,47 +23,44 @@ public class Move : MonoBehaviour
 
     public void MoveControl()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (ClickObject() == null)
         {
-
-            //if (Input.touchCount > 0)
-            {
-                //if (Input.touches[0].phase == TouchPhase.Began)
-                {
-                    // 手指按下时，要触发的代码
-                    Debug.Log("touch!");
-                    //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                    RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-
-
-                    //Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-
-                    //hit用来存储碰撞物体的信息   
-                    //RaycastHit hit;
-
-                    if (hit.collider != null)
-                    {
-                        Debug.Log("hit");
-                        GameObject gameObject = hit.collider.gameObject;
-
-                        if (gameObject.tag == "grid")
-                        {
-                            hitCount++;
-                            Debug.Log("hitGrid");
-                            gameObject.GetComponent<SpriteRenderer>().sprite = Resource.instance.gridChangeColor;
-                        }
-                    }
-                }
-            }
-
+            return;
         }
-
+        GameObject clickObj = ClickObject();
+        if (clickObj.tag == "grid")
+        {
+            clickObj.GetComponent<RawImage>().texture = Resource.instance.gridChangeColor.texture;
+        }
 
     }
 
     public void ModeChoose(GameObject obj)
     {
 
+    }
+
+    public GameObject ClickObject()
+    {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = new Vector2
+            (
+#if UNITY_EDITOR
+            Input.mousePosition.x, Input.mousePosition.y
+#elif UNITY_ANDROID || UNITY_IOS
+           Input.touchCount > 0 ? Input.GetTouch(0).position.x : 0, Input.touchCount > 0 ? Input.GetTouch(0).position.y : 0
+#endif
+            );
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        if (results.Count > 0)
+        {
+            return results[0].gameObject;
+        }
+        else
+        {
+            return null;
+        }
     }
 
 }
