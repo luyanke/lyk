@@ -11,13 +11,6 @@ public class Resource : MonoBehaviour
     //选中的高光背景
     public Sprite gridChangeColor;
     public Sprite gridOriginColor;
-    
-    //num img
-    public Sprite[] numSpriteArray;
-    //grid
-    //public SpriteRenderer[] grid;
-    public RawImage[] grid;
-    public Image[] nums;
 
     private void Start()
     {

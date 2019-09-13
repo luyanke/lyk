@@ -172,8 +172,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.505157, g: 0.7924528, b: 0.42986828, a: 1}
+    m_PressedColor: {r: 0.7169812, g: 0.5309719, b: 0.5309719, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -190,7 +190,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 21514483}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1987084461}
+        m_MethodName: AddBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &21514483
@@ -213,7 +224,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 9bea1de66ff3182468476987c4b15168, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d56791266ada83b4480b6f6791240ca4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -366,6 +377,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42d2083c61d41404e9f2d84df5c5e4e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gridObj:
+  - {fileID: 905993252}
+  - {fileID: 208208576}
+  - {fileID: 1598575538}
+  - {fileID: 1748362443}
+  - {fileID: 1789527146}
+  - {fileID: 1046702202}
+  - {fileID: 522205618}
+  - {fileID: 472089242}
+  - {fileID: 1680589886}
+  numPrefab:
+  - {fileID: 7698328613041261855, guid: 51c2552859dd50b4b8e1c796341dd7f9, type: 3}
+  - {fileID: 7299317240744851371, guid: 3af597a73d322464a8935a161f584dd2, type: 3}
+  - {fileID: 1252394271249192277, guid: 4035af584463cfd418bd471f2fca42d6, type: 3}
+  - {fileID: 293842014262018941, guid: 6ec28baeae69cdd4d836a426a4950aa7, type: 3}
+  - {fileID: 1038190353984507285, guid: 3e037a350eb032f4f9693b8a8ca0e616, type: 3}
+  - {fileID: 6363918443966175620, guid: 6422bd7fa05686646b1e1a774dedf8ca, type: 3}
+  - {fileID: 5597420044292875201, guid: 81c229d05751e87498357e20c6a1a5cb, type: 3}
+  - {fileID: 6457328698031491401, guid: 6650334c1513ebf4e8e18795f52e452c, type: 3}
+  - {fileID: 7878941019959653752, guid: 1fa656cd274d89842bc62ca36e8b3fbd, type: 3}
+  - {fileID: 7575987945027475168, guid: 3afb6ad9e8be56d41bb3efe71293447a, type: 3}
 --- !u!4 &61339274
 Transform:
   m_ObjectHideFlags: 0
@@ -663,7 +695,7 @@ MonoBehaviour:
     m_Top: 5
     m_Bottom: 5
   m_ChildAlignment: 4
-  m_Spacing: 0
+  m_Spacing: -50
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -1406,7 +1438,7 @@ MonoBehaviour:
     m_Top: 5
     m_Bottom: 5
   m_ChildAlignment: 4
-  m_Spacing: 0
+  m_Spacing: -50
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -1742,7 +1774,7 @@ MonoBehaviour:
     m_Top: 5
     m_Bottom: 5
   m_ChildAlignment: 4
-  m_Spacing: 0
+  m_Spacing: -50
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -1881,8 +1913,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.505157, g: 0.7924528, b: 0.42986828, a: 1}
+    m_PressedColor: {r: 0.7169812, g: 0.5309719, b: 0.5309719, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1922,7 +1954,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 9bea1de66ff3182468476987c4b15168, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d56791266ada83b4480b6f6791240ca4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2110,7 +2142,7 @@ MonoBehaviour:
     m_Top: 5
     m_Bottom: 5
   m_ChildAlignment: 4
-  m_Spacing: 0
+  m_Spacing: -50
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -2420,7 +2452,7 @@ MonoBehaviour:
     m_Top: 5
     m_Bottom: 5
   m_ChildAlignment: 4
-  m_Spacing: 0
+  m_Spacing: -50
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -2520,8 +2552,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.505157, g: 0.7924528, b: 0.42986828, a: 1}
+    m_PressedColor: {r: 0.7169812, g: 0.5309719, b: 0.5309719, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -2561,7 +2593,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 9bea1de66ff3182468476987c4b15168, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d56791266ada83b4480b6f6791240ca4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3296,8 +3328,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.505157, g: 0.7924528, b: 0.42986828, a: 1}
+    m_PressedColor: {r: 0.7169812, g: 0.5309719, b: 0.5309719, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -3337,7 +3369,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 9bea1de66ff3182468476987c4b15168, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d56791266ada83b4480b6f6791240ca4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3522,7 +3554,7 @@ MonoBehaviour:
     m_Top: 5
     m_Bottom: 5
   m_ChildAlignment: 4
-  m_Spacing: 0
+  m_Spacing: -50
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -3618,7 +3650,7 @@ MonoBehaviour:
     m_Top: 5
     m_Bottom: 5
   m_ChildAlignment: 4
-  m_Spacing: 0
+  m_Spacing: -50
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -3872,7 +3904,7 @@ MonoBehaviour:
     m_Top: 5
     m_Bottom: 5
   m_ChildAlignment: 4
-  m_Spacing: 0
+  m_Spacing: -50
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -3968,7 +4000,7 @@ MonoBehaviour:
     m_Top: 5
     m_Bottom: 5
   m_ChildAlignment: 4
-  m_Spacing: 0
+  m_Spacing: -50
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -4068,8 +4100,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.505157, g: 0.7924528, b: 0.42986828, a: 1}
+    m_PressedColor: {r: 0.7169812, g: 0.5309719, b: 0.5309719, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -4109,7 +4141,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 9bea1de66ff3182468476987c4b15168, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d56791266ada83b4480b6f6791240ca4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4293,8 +4325,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.505157, g: 0.7924528, b: 0.42986828, a: 1}
+    m_PressedColor: {r: 0.7169812, g: 0.5309719, b: 0.5309719, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -4334,7 +4366,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 9bea1de66ff3182468476987c4b15168, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d56791266ada83b4480b6f6791240ca4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4380,7 +4412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfbbec7acd4c49c4984a0fb33f7efeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chosen: []
+  chosen: 
 --- !u!4 &1987084462
 Transform:
   m_ObjectHideFlags: 0
@@ -4426,38 +4458,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridChangeColor: {fileID: 0}
   gridOriginColor: {fileID: 0}
-  numSpriteArray:
-  - {fileID: 21300000, guid: 7ce8b9ffa7ab2bf40afc833572453f95, type: 3}
-  - {fileID: 21300000, guid: 7faf5e701eb2b244ba718aaa559d8a8f, type: 3}
-  - {fileID: 21300000, guid: a4eeb7acbc778e148872b15f9919bc8f, type: 3}
-  - {fileID: 21300000, guid: 75238f05d007bc846a2c1437f238f0d4, type: 3}
-  - {fileID: 21300000, guid: 9c0d63861153e5d41b5cfd89c0e53c7c, type: 3}
-  - {fileID: 21300000, guid: ad0864e7cc608cf4785ffc9f05a6c555, type: 3}
-  - {fileID: 21300000, guid: 98341c91e10537f40b3102c1b92ed086, type: 3}
-  - {fileID: 21300000, guid: dc6a7272512db6744a8fcafe532983ae, type: 3}
-  - {fileID: 21300000, guid: 63b9e4d690f660c42818e96edad4cbf5, type: 3}
-  - {fileID: 21300000, guid: 34458008d004a4e4ca8c01a578640c93, type: 3}
-  grid:
-  - {fileID: 905993255}
-  - {fileID: 208208579}
-  - {fileID: 1598575541}
-  - {fileID: 1748362446}
-  - {fileID: 1789527149}
-  - {fileID: 1046702205}
-  - {fileID: 522205621}
-  - {fileID: 472089245}
-  - {fileID: 1680589889}
-  nums:
-  - {fileID: 7698328613041261849, guid: 51c2552859dd50b4b8e1c796341dd7f9, type: 3}
-  - {fileID: 7299317240744851373, guid: 3af597a73d322464a8935a161f584dd2, type: 3}
-  - {fileID: 1252394271249192299, guid: 4035af584463cfd418bd471f2fca42d6, type: 3}
-  - {fileID: 293842014262018943, guid: 6ec28baeae69cdd4d836a426a4950aa7, type: 3}
-  - {fileID: 1038190353984507287, guid: 3e037a350eb032f4f9693b8a8ca0e616, type: 3}
-  - {fileID: 6363918443966175618, guid: 6422bd7fa05686646b1e1a774dedf8ca, type: 3}
-  - {fileID: 5597420044292875207, guid: 81c229d05751e87498357e20c6a1a5cb, type: 3}
-  - {fileID: 6457328698031491399, guid: 6650334c1513ebf4e8e18795f52e452c, type: 3}
-  - {fileID: 7878941019959653754, guid: 1fa656cd274d89842bc62ca36e8b3fbd, type: 3}
-  - {fileID: 7575987945027475170, guid: 3afb6ad9e8be56d41bb3efe71293447a, type: 3}
 --- !u!4 &2126518265
 Transform:
   m_ObjectHideFlags: 0
