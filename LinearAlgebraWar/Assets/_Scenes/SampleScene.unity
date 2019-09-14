@@ -398,6 +398,7 @@ MonoBehaviour:
   - {fileID: 6457328698031491401, guid: 6650334c1513ebf4e8e18795f52e452c, type: 3}
   - {fileID: 7878941019959653752, guid: 1fa656cd274d89842bc62ca36e8b3fbd, type: 3}
   - {fileID: 7575987945027475168, guid: 3afb6ad9e8be56d41bb3efe71293447a, type: 3}
+  - {fileID: 5094738461659666844, guid: 412b98db324d0774f968689d2155f6d9, type: 3}
 --- !u!4 &61339274
 Transform:
   m_ObjectHideFlags: 0
@@ -4343,7 +4344,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1961805171}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1987084461}
+        m_MethodName: MinusBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1961805171

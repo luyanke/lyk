@@ -34,31 +34,17 @@ public class Node
         this.param2 = param2;
     }
 }
-
-////矩阵的单个元素
-//public class MatrixElement
-//{
-//    public int num { get; set; }
-//    //public Sprite numImg { get; set; }
-//    public GameObject grid { get; set; }
-
-//}
-
 public class Matrix : MonoBehaviour
 {
-    //public int[] num;
     public static Matrix instance;
 
-    //public MatrixElement[,] matrix;
     private int[,] TestMatrix;
 
     public int[,] matrix;
     public GameObject[] gridObj;
 
     public GameObject[] numPrefab;
-    //public Sprite[,] matrixGrid;
 
-    //private Sprite[,] matrixImg;
     private Node node;
     private List<Node> history;
 
@@ -66,9 +52,7 @@ public class Matrix : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        //matrix = new MatrixElement[3, 3];
         matrix = new int[3,3] { { 62, 20, 33 }, { 4, 56, 67 }, { 17, 8, 9 } };
-        //TestMatrix = new int[,] { { 62, 20, 33 }, { 4, 56, 67 }, { 17, 8, 9 } };
     }
     void Start()
     {
@@ -93,13 +77,21 @@ public class Matrix : MonoBehaviour
                 {
                     if (child != null)
                     {
-                        Destroy(child);
+                        Destroy(child.gameObject);
                     }
                 }
                 foreach (char num in originMatrix[i, j].ToString())
                 {
                     //根据矩阵实例化图片，并成为网格的子物体
-                    Instantiate(numPrefab[int.Parse(num.ToString())], gridObj[gridCount].transform.position, Quaternion.identity).transform.parent = gridObj[gridCount].transform;
+                    if(num == '-')
+                    {
+                        //如果是负数
+                        Instantiate(numPrefab[10], gridObj[gridCount].transform.position, Quaternion.identity).transform.parent = gridObj[gridCount].transform;
+                    }
+                    else
+                    {
+                        Instantiate(numPrefab[int.Parse(num.ToString())], gridObj[gridCount].transform.position, Quaternion.identity).transform.parent = gridObj[gridCount].transform;
+                    }
                 }
                 gridCount++;
             }
@@ -111,7 +103,6 @@ public class Matrix : MonoBehaviour
     {
         // for --- alter
         int temp;
-        //MatrixElement temp = new MatrixElement();
         for (int i = 0; i < matrix.GetLength(0); i++)
         {
             temp = matrix[row1, i];
@@ -124,7 +115,6 @@ public class Matrix : MonoBehaviour
     public void SwapCol(int col1, int col2)
     {
         int temp;
-        //MatrixElement temp = new MatrixElement();
         for (int i = 0; i < matrix.GetLength(0); i++)
         {
             temp = matrix[i, col1];
@@ -138,13 +128,43 @@ public class Matrix : MonoBehaviour
     {
         for(int i = 0; i < matrix.GetLength(0); i++)
         {
-            matrix[row1, i] = matrix[row1, i] + matrix[row2, i];
+            matrix[row1, i] += matrix[row2, i];
         }
         Debug.Log(matrix);
         GenerateMatrix(matrix);
     }
 
     public void AddCol(int col1,int col2)
+    {
+        for (int i = 0; i < matrix.GetLength(0); i++)
+        {
+            matrix[i,col1] += matrix[i, col2];
+        }
+        Debug.Log(matrix);
+        GenerateMatrix(matrix);
+    }
+
+    public void MinusRow(int row1, int row2)
+    {
+        for (int i = 0; i < matrix.GetLength(0); i++)
+        {
+            matrix[row1, i] -= matrix[row2, i];
+        }
+        Debug.Log(matrix);
+        GenerateMatrix(matrix);
+    }
+
+    public void MinusCol(int col1, int col2)
+    {
+        for (int i = 0; i < matrix.GetLength(0); i++)
+        {
+            matrix[i, col1] -= matrix[i, col2];
+        }
+        Debug.Log(matrix);
+        GenerateMatrix(matrix);
+    }
+
+    public void MultipRow(int row1, int row2)
     {
 
     }

@@ -47,24 +47,29 @@ public class Move : MonoBehaviour
             {
                 return;
             }
-            GameObject clickObj = ClickObject();
-            if (clickObj.tag == "grid")
+            if (ClickObject().tag == "grid")
             {
+                GameObject clickObj = ClickObject();
                 for (int i = 0; i < Matrix.instance.gridObj.Length; i++)
                 {
                     if (clickObj == Matrix.instance.gridObj[i])
                     {
                         if (chosen.Count <= 3)
                         {
-                            //判断当前点击是否已被选中
+                            //当前点击还未被选中
                             if (!chosen.Contains(i))
                             {
                                 chosen.Add(i);
+                                Debug.Log("chosen元素个数 " + chosen.Count);
+                                foreach (int chose in chosen)
+                                {
+                                    Debug.Log("chosenz中元素为" + chose);
+                                }
                             }
                         }
                         else
                         {
-                            RefreshChose();
+                            RefreshChoseAndStep();
                         }
                     }
                 }
@@ -120,19 +125,28 @@ public class Move : MonoBehaviour
     {
         Debug.Log("请选中行或者列");
         yield return new WaitForSeconds(.2f);
-        RefreshChose();
+        RefreshChoseAndStep();
         isInteractive = true;
+    }
+
+    public void RefreshChoseAndStep()
+    {
+        chosen.Clear();
+        stepChose = StepChose.None;
+        step = Step.none;
+        foreach (GameObject refreshChose in Matrix.instance.gridObj)
+        {
+            refreshChose.GetComponent<RawImage>().texture = Resource.instance.gridOriginColor.texture;
+        }
     }
 
     public void RefreshChose()
     {
         chosen.Clear();
-        stepChose = StepChose.None;
-        step = Step.none;
-        foreach (GameObject flashChose in Matrix.instance.gridObj)
-        {
-            flashChose.GetComponent<RawImage>().texture = Resource.instance.gridOriginColor.texture;
-        }
+        //foreach (GameObject refreshChose in Matrix.instance.gridObj)
+        //{
+        //    refreshChose.GetComponent<RawImage>().texture = Resource.instance.gridOriginColor.texture;
+        //}
     }
 
     public StepChose Message(Step stepMessage,StepChose choseMessage,int i)
@@ -154,15 +168,33 @@ public class Move : MonoBehaviour
                 break;
 
             case Step.addCol:
+                Matrix.instance.AddCol(stepParam, stepChoseParam);
                 break;
 
             case Step.minusRow:
+                Matrix.instance.MinusRow(stepParam, stepChoseParam);
                 break;
 
             case Step.minusCol:
+                Matrix.instance.MinusCol(stepParam, stepChoseParam);
                 break;
         }
+        StartCoroutine(WaitForRefreshChoseAndStep(0.3f));
+        isInteractive = false;
+        StartCoroutine(WaitForInteractivable(0.5f));
         return choseMessage;
+    }
+
+    private IEnumerator WaitForInteractivable(float sec)
+    {
+        yield return new WaitForSeconds(sec);
+        isInteractive = true;
+    }
+
+    private IEnumerator WaitForRefreshChoseAndStep(float sec)
+    {
+        yield return new WaitForSeconds(sec);
+        RefreshChoseAndStep();
     }
 
     public Step Message(Step stepMessage,int i)
@@ -213,12 +245,44 @@ public class Move : MonoBehaviour
             case StepChose.Row:
                 Debug.Log("行相加");
                 step = Message(Step.addRow, stepChoseParam);
+                RefreshChose();
                 break;
 
             case StepChose.Col:
                 step = Message(Step.addCol, stepChoseParam);
+                RefreshChose();
                 break;
         }
     }
 
+    public void MinusBtn()
+    {
+        switch (stepChose)
+        {
+            case StepChose.None:
+                Debug.Log("请先选中行或者列AddBtn");
+                break;
+
+            case StepChose.Row:
+                Debug.Log("行相加");
+                step = Message(Step.minusRow, stepChoseParam);
+                RefreshChose();
+                break;
+
+            case StepChose.Col:
+                step = Message(Step.minusCol, stepChoseParam);
+                RefreshChose();
+                break;
+        }
+    }
+
+    public void MultipBtn()
+    {
+
+    }
+
+    public void DivideBtn()
+    {
+
+    }
 }
